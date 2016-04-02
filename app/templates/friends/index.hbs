@@ -1,7 +1,21 @@
 <h1>Friends Index</h1>
+<h2>Friends: {{model.length}}</h2>
 
-<ul>
-  {{#each model as |friend|}}
-    <li>{{friend.firstName}} {{friend.lastName}}</li>
-  {{/each}}
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each model as |friend|}}
+      <tr>
+        {{!-- pass the route and an instance of friend --}}
+        <td>{{link-to friend.fullName "friends.show" friend}}</td>
+        {{!-- delete action will be handeled in the friends route (as this is parent of index and also show, the bubble up will look for the delete action there) --}}
+        <td><a href="#" {{action "delete" friend}}>Delete</a></td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
