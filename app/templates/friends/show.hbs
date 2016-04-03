@@ -6,3 +6,7 @@
   <p>{{link-to 'Edit Friend' 'friends.edit' model}}</p>
   <p><a href="#" {{action "delete" model}}>Delete Friend</a></p>
 </div>
+<div class="articles-container">
+  {{!-- because we nested articles under the friends/show route --}}
+  {{outlet}}
+</div>
