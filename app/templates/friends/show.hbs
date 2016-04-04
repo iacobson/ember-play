@@ -3,6 +3,8 @@
   <p>{{model.lastName}}</p>
   <p>{{model.email}}</p>
   <p>{{model.twitter}}</p>
+  {{!-- since we are in the context of a friend, we don't need to pass it as option in link-to --}}
+  <p>{{link-to "Lend article" "articles.new"}}</p>
   <p>{{link-to 'Edit Friend' 'friends.edit' model}}</p>
   <p><a href="#" {{action "delete" model}}>Delete Friend</a></p>
 </div>

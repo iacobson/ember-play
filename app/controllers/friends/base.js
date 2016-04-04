@@ -22,7 +22,7 @@ export default Ember.Controller.extend({
         this.get('model').save()
         .then((friend) => {   // the fat arrow is ES6 short way to create function. It keeps the same context as the scope where was defined.
           // `then` will be executed only after the data has been saved to the server
-          this.transitionToRoute('friends.show', friend);
+          this.transitionToRoute('articles', friend);
         });
       } else {
         // errorMessage is defined into the `-form` partial

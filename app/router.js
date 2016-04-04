@@ -19,7 +19,7 @@ Router.map(function() {
         // friends/show/articles
       // also will allow us to define articles routes at top level, not inside friends directory
       this.route('articles', {resetNamespace: true}, function() {
-
+        this.route('new');
       });
     });
 
