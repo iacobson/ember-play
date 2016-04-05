@@ -2,19 +2,21 @@
   <thead>
     <tr>
       <th>Description</th>
+      <th>Notes</th>
       <th>Borrowed since</th>
       <th></th>
       <th></th>
     </tr>
   </thead>
+  {{!-- pass the possible states form the articles controller. This is 2 way binding - modifying the list in the component, will modify it also in the controller --}}
+  {{!-- bound the save action to another action which is also called “save” from the component --}}
   <tbody>
     {{#each model as |article|}}
-      <tr>
-        <td>{{article.description}}</td>
-        <td>{{article.createdAt}}</td>
-        <td></td>
-        <td></td>
-      </tr>
+      {{articles/article-row
+        article=article
+        articleStates=possibleStates
+        save="save"
+      }}
     {{/each}}
   </tbody>
 </table>
