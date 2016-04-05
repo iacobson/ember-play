@@ -6,10 +6,13 @@ export default Ember.Component.extend({
   articleStates: null, //passed-in
   // UNLIKE controllers and routes, the actions in COMPONENTS won't bubble up automatically
   actions: {
-    saveArticle(article) {
+    saveArticle() {
+      let article = this.get('article');
       // bind the action to a property and call it in the component with `sendAction`
       // in this case we call the action save from the articles new route
-      this.sendAction('save', article)
+      if (article.get('hasDirtyAttributes')) {
+        this.sendAction('save', article);
+      }
     }
   }
 });
