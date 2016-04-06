@@ -1,6 +1,7 @@
 <td>{{article.description}}</td>
 <td>{{article.notes}}</td>
-<td>{{article.createdAt}}</td>
+{{!-- use formatted-date helper --}}
+<td>{{formatted-date article.createdAt 'LL'}}</td>
 <td>
   {{!-- use https://github.com/thefrontside/emberx-select --}}
   {{!-- binding the selection the article state --}}
