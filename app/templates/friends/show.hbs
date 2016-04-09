@@ -1,14 +1,20 @@
-<div class="card friend-profile">
-  <p>{{model.firstName}}</p>
-  <p>{{model.lastName}}</p>
-  <p>{{model.email}}</p>
-  <p>{{model.twitter}}</p>
-  {{!-- since we are in the context of a friend, we don't need to pass it as option in link-to --}}
-  <p>{{link-to "Lend article" "articles.new"}}</p>
-  <p>{{link-to 'Edit Friend' 'friends.edit' model}}</p>
-  <p><a href="#" {{action "delete" model}}>Delete Friend</a></p>
+<div class="friend-profile">
+  <div class="friend-info full">
+    {{!-- created with the ember-cli-fill-murray-iacobson addon and published to npm
+    check the Ember folder to view the addon --}}
+    {{fill-murray width=300 height=300}}
+    <div>
+      <p>{{model.fullName}}</p>
+      <p>{{model.email}}</p>
+      <p>{{model.twitter}}</p>
+      <ul class="friend-profile-links">
+        <li>{{link-to 'Edit info' 'friends.edit' model}}</li>
+        <li>{{link-to 'Lend article' 'articles.new'}}</li>
+        <li><a href="#" {{action "delete" model}}>Delete</a></li>
+      </ul>
+    </div>
+  </div>
 </div>
 <div class="articles-container">
-  {{!-- because we nested articles under the friends/show route --}}
   {{outlet}}
 </div>
