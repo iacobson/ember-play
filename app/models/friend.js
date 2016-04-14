@@ -4,7 +4,9 @@ import Ember from 'ember';
 
 export default DS.Model.extend({
   // define relationship
-  articles: DS.hasMany('article'),
+  // async relationship. It will load dependent models on demand.
+  // ATTENTION: in Ember Data >2.0, relations are by default async, so probably async: true is not needed anymore
+  articles: DS.hasMany('article', {async: true}),
   firstName: DS.attr('string'),
   lastName: DS.attr('string'),
   email: DS.attr('string'),
