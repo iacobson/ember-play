@@ -4,6 +4,12 @@ export default Ember.Component.extend({
   tagName: 'tr', // the html tag for the component (in this case a table row). If not specified, will be `div` by default
   article: null, // passed-in
   articleStates: null, //passed-in
+
+  stateChanged: Ember.observer('article.state', function(){
+    var article = this.get('article');
+    console.log(`Do something on ${article.description} change with observer`);
+  }),
+
   // UNLIKE controllers and routes, the actions in COMPONENTS won't bubble up automatically
   actions: {
     saveArticle() {
