@@ -3,8 +3,9 @@ import { module, test } from 'qunit';
 
 module('Unit | Utility | date helpers');
 
-// Replace this with your real tests.
-test('it works', function(assert) {
-  let result = dateHelpers();
-  assert.ok(result);
-});
+test('formats a date object', function(assert){
+  let date = new Date('11-2-2015');
+  let result = dateHelpers.formatDate(date, 'ddd MMM DD YYYY');
+
+  assert.equal(result, 'Mon Nov 02 2015');
+})
